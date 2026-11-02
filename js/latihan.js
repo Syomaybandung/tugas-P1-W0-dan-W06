@@ -6,6 +6,7 @@ console.log("Hallo, saya Rana");
 console.log("Ini latihan JavaScript pertamaku.");
 
 //2. Data siswa
+// const dipakai untuk nilai yang tidak akan diganti, sedangkan let untuk nilai yang mungkin berubah.
 const nama = "Ananditya Zahra";
 const kelas = "X PPLG 1";
 const kkm = 75;
@@ -16,10 +17,12 @@ let kehadiran = 90;
 console.log(`Nama: ${nama}, kelas ${kelas}`)
 console.log(`Nilai tugas ${nilaiTugas}, UTS ${nilaiUts}, UAS ${nilaiUas}`)
 
+// Fungsi menerima tiga nilai; operator + menjumlahkan dan / membagi hasilnya dengan 3.
 function hitungRataRata(tugas, uts, uas) {
     return (tugas + uts + uas) / 3;
 }
 
+// Kondisi diperiksa dari atas. Nilai yang mencapai batas pertama langsung mendapat predikat.
 function predikat(nilai) {
     if (nilai >= 90) return "A";
     if (nilai >= 80) return "B";
@@ -27,6 +30,8 @@ function predikat(nilai) {
     return "D";
 }
 
+// Menggabungkan hasil beberapa fungsi. >= membandingkan nilai dengan batas minimum,
+// sedangkan && berarti kedua syarat harus benar agar siswa mendapat sertifikat.
 function rapor(namaSiswa, tugas, uts, uas) {
     const rataRataSiswa = hitungRataRata(tugas, uts, uas);
     const lulusSiswa = rataRataSiswa >= kkm;
@@ -40,11 +45,13 @@ const rataRata = hitungRataRata(nilaiTugas, nilaiUts, nilaiUas);
 const lulus = rataRata >= kkm;
 const dapatSertifikat = lulus && kehadiran >= 80;
 
+// Menampilkan hasil perhitungan ke Console.
 console.log(`Rata-rata nilai: ${rataRata}`);
 console.log(`Lulus KKM: ${lulus}`);
 console.log(`Dapat sertifikat: ${dapatSertifikat}`);
 
 //Predikat dengan if, else if, dan else
+// Hanya satu cabang yang dijalankan: program memilih rentang nilai yang cocok.
 let predikatNilai;
 
 if (rataRata >= 90) {
@@ -63,6 +70,7 @@ console.log(`Predikat: ${predikatNilai}`);
 
 
 // 4. Hasil nilai Rana
+// Menguji lagi perhitungan yang sama dan menampilkan pesan sesuai status kelulusan.
 const rataRataRana = hitungRataRata(nilaiTugas, nilaiUts, nilaiUas);
 const lulusRana = rataRataRana >= kkm;
 const dapatSertifikatRana = lulusRana && kehadiran >= 80;
@@ -79,7 +87,7 @@ if (lulusRana) {
     console.log("Tetap semangat, ikut remedial ya.");
 }
 
-// 5. mMenguji fungsi predikat dengan beberapa nilai
+// 5. Menguji batas predikat, termasuk nilai tepat di batas dan satu poin di bawahnya.
 console.log(`predikat(95) = ${predikat(95)}`); // A
 console.log(`predikat(90) = ${predikat(90)}`); // A, tepat di batas
 console.log(`predikat(84) = ${predikat(84)}`); // B
@@ -87,6 +95,7 @@ console.log(`predikat(70) = ${predikat(70)}`); // C
 console.log(`predikat(69) = ${predikat(69)}`); // D
 
 // 6. Rapor beberapa siswa
+// Memanggil fungsi rapor untuk melihat bagaimana hasilnya berbeda pada data tiap siswa.
 console.log(rapor("Rana", 85, 78, 89));
 console.log(rapor("Wiliam", 92, 88, 96));
 console.log(rapor("Terra", 70, 65, 72));
